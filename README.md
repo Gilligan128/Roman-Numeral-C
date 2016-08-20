@@ -63,5 +63,5 @@ This Kata is based on the Roman Numeral Calculator Kata at http://bit.ly/1VfHqlj
 
 - I will not be converitng to Arabic numerals but will attempt to do it "When in Rome" style, like they would have done back then.
 - I will likely be utilizing the algorithms shown here: http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/.
-- I will be attempting to use a Londesque style fo "Discovery Testing" baded on the style shown here: http://blog.testdouble.com/posts/2015-09-10-how-i-use-test-doubles.html
+- I will be attempting to use a Londesque style of "Discovery Testing" based on the style shown here: http://blog.testdouble.com/posts/2015-09-10-how-i-use-test-doubles.html
 
