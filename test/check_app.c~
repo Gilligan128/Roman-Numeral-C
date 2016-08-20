@@ -1,0 +1,7 @@
+#include <check.h>
+
+START_TEST(do_stuff)
+{
+  
+}
+END_TEST
