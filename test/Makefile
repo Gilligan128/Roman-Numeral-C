@@ -5,7 +5,7 @@ VPATH=../src
         
 TEST_OBJECTS = addition_tests.o
 
-OBJECTS = addition.o
+OBJECTS = addition.o sort.o grouping.o subtractives.o
 
 .PHONY: clean test 
 

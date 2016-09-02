@@ -1,17 +1,13 @@
 PACKAGE_NAME=roman-numeral
 SUBDIRS=test
 
-.PHONY: all src test clean
+.PHONY: all test clean
 
 all: test
 
 clean:
-	$(MAKE) -C src clean
 	$(MAKE) -C test clean
 
-src:
-	$(MAKE) -C src
 
-
-test: src
+test: clean src
 	$(MAKE) -C test
