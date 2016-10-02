@@ -1,1 +1,1 @@
-void sort_descending(char * numeral);
+void sort_descending(char numeral[]);

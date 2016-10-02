@@ -1,6 +1,6 @@
 OBJECTS = app.o
 
-CFLAGS = -g
+CFLAGS = -g -std=c99
 
 .PHONY: all clean
 
