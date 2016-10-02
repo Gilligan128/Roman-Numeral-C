@@ -5,5 +5,6 @@
 
 TCase* addition_tests(void);
 TCase* sort_tests(void);
+TCase* grouping_tests(void);
 
 #endif

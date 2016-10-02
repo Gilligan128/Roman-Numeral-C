@@ -9,23 +9,23 @@ typedef struct
 }
 NumeralSort;
 
-static NumeralSort NumeralSorts[] = {
- { 0, 'I'},
- {1, 'V'},
- {2, 'X'},
- {3, 'L'},
- {4, 'C'},
- {5, 'D'},
- {6, 'M'}
+static char NumeralSorts[] = { 
+  'I',
+  'V',
+  'X',
+  'L',
+  'C',
+  'D',
+  'M'
 };
 
 static int find_sort_order(char numeral)
 {
   int i;
-  for(i=0; i< sizeof(NumeralSorts)/sizeof(NumeralSort); i++)
+  for(i=0; i< sizeof(NumeralSorts); i++)
   {
-    if(NumeralSorts[i].numeral == numeral)
-	return NumeralSorts[i].sortValue;
+    if(NumeralSorts[i] == numeral)
+	return i;
   }
   return 0;
 }
