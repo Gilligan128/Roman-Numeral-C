@@ -4,5 +4,6 @@
 #include <check.h>
 
 TCase* addition_tests(void);
+TCase* sort_tests(void);
 
 #endif

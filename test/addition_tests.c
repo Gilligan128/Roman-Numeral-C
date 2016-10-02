@@ -19,7 +19,6 @@ TCase* addition_tests(void)
 {
   TCase *additionCase = tcase_create("addition");
   tcase_add_test(additionCase, adds_simple_numeral_to_nothing);
-  tcase_add_test(additionCase, placeholder);	
   return additionCase;
 }
 
