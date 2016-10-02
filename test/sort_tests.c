@@ -4,15 +4,16 @@
 
 START_TEST(reverses_a_numeral)
 {
-   char* inputOutput = "MLCDXVI";
+   const char* numeral_reference = "IVXLCDM"; //so I don't forget all the numerals
+   char inputOutput[] = "MDCLXVI";
    sort_descending(inputOutput);
-   check_assert_str_eq("IVXDCLM", inputOutput);	
+   ck_assert_str_eq("IVXLCDM", inputOutput);	
 }
 END_TEST
 
-TCase* sortTests(void)
+TCase* sort_tests(void)
 {
   TCase* sorting = tcase_create("sorting");
- // tcase_add_test(sorting, reverses_a_numeral);
+  tcase_add_test(sorting, reverses_a_numeral);
   return sorting;
 }

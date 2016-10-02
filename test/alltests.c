@@ -9,7 +9,8 @@ Suite * roman_numeral_suite(void)
     Suite *s;
 
     s = suite_create("roman-numeral");
-    suite_add_tcase(s, addition_tests());	
+    suite_add_tcase(s, addition_tests());
+    suite_add_tcase(s, sort_tests());	
     return s;
 }
 
