@@ -3,7 +3,7 @@ CFLAGS =  `pkg-config --cflags check`
 LIBS = `pkg-config --libs check`
 VPATH=../src
         
-TEST_OBJECTS = addition_tests.o
+TEST_OBJECTS = alltests.o addition_tests.o 
 
 OBJECTS = addition.o sort.o grouping.o subtractives.o
 
@@ -12,10 +12,8 @@ OBJECTS = addition.o sort.o grouping.o subtractives.o
 test: run_all_tests
 	./run_all_tests
 
-run_all_tests: $(OBJECTS) $(TEST_OBJECTS) alltests.o
+run_all_tests: $(OBJECTS) $(TEST_OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
-
-alltests.o: $(TEST_OBJECTS)
 
 clean:
 	rm -f *.o

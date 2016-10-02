@@ -1,7 +1,7 @@
 #include <check.h>
 #include <stdlib.h>
 
-#include "addition_tests.h"
+#include "roman_test_cases.h"
 
 
 Suite * roman_numeral_suite(void)

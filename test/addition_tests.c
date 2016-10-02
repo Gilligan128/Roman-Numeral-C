@@ -1,5 +1,4 @@
 #include <check.h>
-#include "addition_tests.h"
 #include "../src/addition.h"
 
 START_TEST (adds_simple_numeral_to_nothing)
@@ -16,12 +15,11 @@ START_TEST (adds_simple_numeral_to_nothing)
 END_TEST
 
 
-
-
-TCase *addition_tests()
+TCase* addition_tests(void)
 {
   TCase *additionCase = tcase_create("addition");
-  tcase_add_test(additionCase, adds_simple_numeral_to_nothing);	
+  tcase_add_test(additionCase, adds_simple_numeral_to_nothing);
+  tcase_add_test(additionCase, placeholder);	
   return additionCase;
 }
 
