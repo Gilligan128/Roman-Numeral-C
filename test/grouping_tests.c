@@ -10,8 +10,8 @@ const InputExpectedPair scenarios[] =
 {
   {"", ""},
   {"VV", "X"},
-  {"VVII", "XII"}
-
+  {"VVII", "XII"},
+  {"VVVV", "XX"}
 };
 
 START_TEST(groups_properly)
