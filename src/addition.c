@@ -15,6 +15,7 @@ char * add_numerals(char * result,const char * firstNumeral, const char * second
    char secondNumeralSubstituted[50];
    strcpy(firstNumeralSubstituted, firstNumeral);
    strcpy(secondNumeralSubstituted, secondNumeral);
+   
    substitute_out_subtractives(firstNumeralSubstituted);
    substitute_out_subtractives(secondNumeralSubstituted);
 

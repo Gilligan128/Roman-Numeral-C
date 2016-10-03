@@ -14,11 +14,22 @@ START_TEST (adds_simple_numeral_to_nothing)
 }
 END_TEST
 
+START_TEST (adds_complicated_number)
+{
+        char result[100];
+        result[0] = '\0';
+
+	add_numerals(result, "CCCLXIX","DCCCXLV");
+
+	ck_assert_str_eq(result, "MCCXIV");
+}
+END_TEST
 
 TCase* addition_tests(void)
 {
   TCase *additionCase = tcase_create("addition");
   tcase_add_test(additionCase, adds_simple_numeral_to_nothing);
+  tcase_add_test(additionCase, adds_complicated_number);
   return additionCase;
 }
 
