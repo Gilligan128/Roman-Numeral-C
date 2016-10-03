@@ -10,6 +10,7 @@ typedef struct  {
 } InputExpectedPair;
 
 const InputExpectedPair substitue_out_scenarios[] = {
+  {"IV", "IIII"}
 };
 
 START_TEST(substitutes_out_properly)
