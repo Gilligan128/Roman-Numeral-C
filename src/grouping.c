@@ -17,15 +17,6 @@ const Replacement groups[] = {
  {"DD", 'M'}
 };
 
-void combine_groups(char * numeral)
-{ 
-  int i;
-  for(i=0;i<(sizeof(groups)/sizeof(Replacement));i++)
-  {
-    replace_group(numeral, groups[i]);
-  }
-}
-
 void replace_group(char * numeral, Replacement group)
 {
   while(1)
@@ -41,4 +32,15 @@ void replace_group(char * numeral, Replacement group)
    strcpy(numeral, buffer);
   }  
 }
+
+void combine_groups(char * numeral)
+{ 
+  int i;
+  for(i=0;i<(sizeof(groups)/sizeof(Replacement));i++)
+  {
+    replace_group(numeral, groups[i]);
+  }
+}
+
+
 
