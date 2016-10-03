@@ -6,6 +6,6 @@
 TCase* addition_tests(void);
 TCase* sort_tests(void);
 TCase* grouping_tests(void);
-TCase* subtractive_out_tests(void);
+TCase* subtractive_tests(void);
 
 #endif
