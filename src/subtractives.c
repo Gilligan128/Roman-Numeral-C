@@ -10,7 +10,11 @@ typedef struct {
 
 const Subtractive subtractives[] = {
   {"IX", "VIIII"},
-  {"IV", "IIII"}
+  {"IV", "IIII"},
+  {"XL", "XXXX"},
+  {"XC", "LXXXX"},
+  {"CD", "CCCC"},
+  {"CM", "DCCCC"}
 };
 
 void substitute_out_subtractive(char * numeral, Subtractive subtractive)

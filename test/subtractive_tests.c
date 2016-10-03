@@ -11,7 +11,11 @@ typedef struct  {
 
 const InputExpectedPair substitue_out_scenarios[] = {
   {"IV", "IIII"},
-  {"IX", "VIIII"}
+  {"IX", "VIIII"},
+  {"XL", "XXXX"},
+  {"XC", "LXXXX"},
+  {"CD", "CCCC"},
+  {"CM", "DCCCC"}
 };
 
 START_TEST(substitutes_out_properly)
