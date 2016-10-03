@@ -2,14 +2,7 @@
 #include <string.h>
 #include "sort.h"
 
-typedef struct 
-{
-  int sortValue;
-  char numeral;
-}
-NumeralSort;
-
-static char NumeralSorts[] = { 
+static char NumeralSorts[] = {  //is this cheating?
   'I',
   'V',
   'X',
