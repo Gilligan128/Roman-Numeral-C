@@ -10,7 +10,11 @@ typedef struct {
 
 const Replacement groups[] = {
  {"VV", 'X'},
- {"IIIII", 'V'}
+ {"IIIII", 'V'},
+ {"XXXXX", 'L'},
+ {"LL", 'C'},
+ {"CCCCC", 'D'},
+ {"DD", 'M'}
 };
 
 void combine_groups(char * numeral)

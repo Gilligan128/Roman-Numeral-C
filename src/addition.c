@@ -23,7 +23,6 @@ char * add_numerals(char * result,const char * firstNumeral, const char * second
    sort_descending(result);
    combine_groups(result);
    substitute_in_subtractives(result);
-   
 }
 
 
