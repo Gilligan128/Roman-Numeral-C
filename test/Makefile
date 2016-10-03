@@ -4,7 +4,7 @@ LIBS = `pkg-config --libs check`
 VPATH=../src
         
 TEST_OBJECTS = alltests.o addition_tests.o sort_tests.o \
-		grouping_tests.o 
+		grouping_tests.o subtractive_tests.o 
 
 OBJECTS = addition.o sort.o grouping.o subtractives.o
 
