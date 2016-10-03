@@ -9,8 +9,8 @@ typedef struct {
 } Replacement;
 
 const Replacement groups[] = {
- {"VV", 'X'},
  {"IIIII", 'V'},
+ {"VV", 'X'},
  {"XXXXX", 'L'},
  {"LL", 'C'},
  {"CCCCC", 'D'},

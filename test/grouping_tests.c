@@ -28,10 +28,18 @@ START_TEST(groups_properly)
 }
 END_TEST
 
+START_TEST(groups_in_correct_order_of_precedence)
+{
+  char inputOutput[] = "DCCCCLXXXXVIIIII";
+  combine_groups(inputOutput);
+  ck_assert_str_eq("M",inputOutput);
+}
+END_TEST
 
 TCase* grouping_tests(void)
 {
   TCase* grouping = tcase_create("grouping");
   tcase_add_loop_test(grouping, groups_properly, 0, sizeof(scenarios)/sizeof(InputExpectedPair));
+  tcase_add_test(grouping, groups_in_correct_order_of_precedence);
   return grouping;
 }
