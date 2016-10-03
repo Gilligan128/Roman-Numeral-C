@@ -8,9 +8,13 @@ typedef struct {
   char* expanded;
 }Subtractive;
 
-void substitute_out_subtractives(char * numeral)
+const Subtractive subtractives[] = {
+  {"IX", "VIIII"},
+  {"IV", "IIII"}
+};
+
+void substitute_out_subtractive(char * numeral, Subtractive subtractive)
 {
-  Subtractive subtractive = { "IV", "IIII"};
   char buffer[4096];
   char* location = strstr(numeral, subtractive.contracted);
    
@@ -22,7 +26,16 @@ void substitute_out_subtractives(char * numeral)
   strcpy(numeral, buffer);
 }
 
+void substitute_out_subtractives(char * numeral)
+{
+  int i;
+  for(i=0; i<sizeof(subtractives)/sizeof(Subtractive);i++)
+  {
+    substitute_out_subtractive(numeral, subtractives[i]);
+  }
+}
+
 void substitute_in_subtractives(char * numeral)
 {
-
+  
 }
