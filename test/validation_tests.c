@@ -9,7 +9,13 @@ typedef struct
 
 const InputExpectedPair validation_scenarios[] = {
   {"I", 0},
-  {"A", 1},
+  {"V", 0},
+  {"X", 0},
+  {"L", 0},
+  {"C", 0},
+  {"D", 0},
+  {"M", 0},
+  {"A", 1}
 };
 
 START_TEST(must_be_valid_numeral)

@@ -12,11 +12,14 @@ OBJECTS = addition.o sort.o grouping.o subtractives.o \
 
 .PHONY: clean test 
 
-test: run_all_tests
+test: run_all_tests memtest
 	./run_all_tests
 
 run_all_tests: $(OBJECTS) $(TEST_OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+
+memtest: run_all_tests 
+	CK_FORK=no valgrind --leak-check=full ./run_all_tests
 
 clean:
 	rm -f *.o
