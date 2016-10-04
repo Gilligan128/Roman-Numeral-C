@@ -12,6 +12,7 @@ Suite * roman_numeral_suite(void)
     suite_add_tcase(s, sort_tests());	
     suite_add_tcase(s, grouping_tests());
     suite_add_tcase(s, subtractive_tests());
+    suite_add_tcase(s, validation_tests());
     return s;
 }
 

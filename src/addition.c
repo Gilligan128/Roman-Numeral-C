@@ -5,14 +5,14 @@
 #include "sort.h"
 #include "subtractives.h"
 #include "grouping.h"
-//#include "validate.h"
 
-char * add_numerals(char * result,const char * firstNumeral, const char * secondNumeral)
+static const int MAX_NUMERAL = 20;
+char* add_numerals(char * result,const char * firstNumeral, const char * secondNumeral)
 {
    result[0] = '\0';
    
-   char firstNumeralSubstituted[50];
-   char secondNumeralSubstituted[50];
+   char firstNumeralSubstituted[MAX_NUMERAL];
+   char secondNumeralSubstituted[MAX_NUMERAL];
    strcpy(firstNumeralSubstituted, firstNumeral);
    strcpy(secondNumeralSubstituted, secondNumeral);
    
