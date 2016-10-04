@@ -15,7 +15,9 @@ const InputExpectedPair validation_scenarios[] = {
   {"C", 0},
   {"D", 0},
   {"M", 0},
-  {"A", 1}
+  {"MDCLXVI", 0},
+  {"A", 1},
+  {"MAAAA", 1}
 };
 
 START_TEST(must_be_valid_numeral)

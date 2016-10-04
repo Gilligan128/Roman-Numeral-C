@@ -6,7 +6,7 @@
 #include "subtractives.h"
 #include "grouping.h"
 
-static const int MAX_NUMERAL = 20;
+static const int MAX_NUMERAL = 21;
 char* add_numerals(char * result,const char * firstNumeral, const char * secondNumeral)
 {
    result[0] = '\0';

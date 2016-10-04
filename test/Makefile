@@ -12,7 +12,7 @@ OBJECTS = addition.o sort.o grouping.o subtractives.o \
 
 .PHONY: clean test 
 
-test: run_all_tests memtest
+test:  memtest
 	./run_all_tests
 
 run_all_tests: $(OBJECTS) $(TEST_OBJECTS)
