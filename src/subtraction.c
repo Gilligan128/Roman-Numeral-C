@@ -17,6 +17,9 @@ char* subtract_numerals(char* result, const char* first_numeral, const char* sec
   
   substitute_out_subtractives(first_numeral_substituted);
   substitute_out_subtractives(second_numeral_substituted);
+  sort_descending(first_numeral_substituted);
+  sort_descending(result);
+
   strcat(result, first_numeral_substituted);
   cross_out_numerals(result, second_numeral_substituted);
   sort_descending(result);

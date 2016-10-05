@@ -9,7 +9,8 @@ typedef struct  {
 } CrossOutScenario;
 
 const CrossOutScenario cross_out_scenarios[] = {
-  {"I", "I", ""}
+  {"I", "I", ""},
+  {"I", "II", ""}
 };
 
 START_TEST(crosses_out_properly)
