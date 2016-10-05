@@ -2,7 +2,7 @@
 CFLAGS =  `pkg-config --cflags check`
 LIBS = `pkg-config --libs check`
 VPATH=../src   
-TEST_OBJECTS = $(patsubst %.c,%.o,$(wildcard *.c))
+TEST_OBJECTS := $(patsubst %.c,%.o,$(wildcard *.c))
 OBJECTS := $(patsubst %.c,%.o,$(wildcard ../src/*.c))
 
 .PHONY: clean test 
