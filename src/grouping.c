@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+
+#include "roman_string.h"
 #include "grouping.h"
 
 typedef struct {
@@ -19,18 +21,7 @@ const Replacement groups[] = {
 
 void replace_group(char * numeral, Replacement group)
 {
-  while(1)
-  { 
-   char buffer[4096];
-   char* location = strstr(numeral, group.group);
-   
-   if(!location)
-     break;  
-  
-   strncpy(buffer, numeral, location-numeral);
-   sprintf(buffer+(location-numeral), "%c%s", group.replacement, location + strlen(group.group)); 
-   strcpy(numeral, buffer);
-  }  
+  replace_substring(numeral, group.group, (char[2]){group.replacement, '\0'});
 }
 
 void combine_groups(char * numeral)

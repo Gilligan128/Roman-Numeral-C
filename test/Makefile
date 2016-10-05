@@ -8,7 +8,7 @@ TEST_OBJECTS = alltests.o addition_tests.o sort_tests.o \
 		validation_tests.o
 
 OBJECTS = addition.o sort.o grouping.o subtractives.o \
-	  validate.o
+	  validate.o roman_string.o
 
 .PHONY: clean test 
 
