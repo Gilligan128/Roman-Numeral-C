@@ -22,6 +22,7 @@ Suite * unit_suite(void)
     suite_add_tcase(s, subtractive_tests());
     suite_add_tcase(s, validation_tests());
     suite_add_tcase(s, cross_out_tests());
+    suite_add_tcase(s, roman_string_tests());
     return s;
 }
 

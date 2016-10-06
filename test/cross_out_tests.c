@@ -8,14 +8,15 @@ typedef struct  {
  char* expected;
 } CrossOutScenario;
 
-const CrossOutScenario cross_out_scenarios[] = {
+static const CrossOutScenario cross_out_scenarios[] = {
   {"I", "I", ""},
-  {"I", "II", ""}
+  {"I", "II", ""},
+  {"II", "I", "I"}
 };
 
 START_TEST(crosses_out_properly)
 {
-  char buffer[4096];
+  char buffer[40];
   strcpy(buffer, cross_out_scenarios[_i].input);
   cross_out_numerals(buffer, cross_out_scenarios[_i].to_cross_out);
   ck_assert_str_eq(cross_out_scenarios[_i].expected, buffer);
