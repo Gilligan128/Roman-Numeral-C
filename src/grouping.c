@@ -33,5 +33,23 @@ void combine_groups(char * numeral)
   }
 }
 
+void expand_group(char* numeral, int indexOfGroup)
+{  
+   if(strlen(numeral) == 0)
+     return;
+
+   char buffer[40];
+   for(int i=0;i<6;i++)
+   {
+     if(groups[i].replacement == numeral[indexOfGroup])
+     {
+      strncpy(buffer, numeral, indexOfGroup+1);
+      sprintf(buffer+indexOfGroup, "%s%s", groups[i].group, numeral+indexOfGroup+1);
+      strcpy(numeral, buffer);
+      break;
+     }
+   }
+}
+
 
 
