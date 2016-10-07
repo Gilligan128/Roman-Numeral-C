@@ -4,6 +4,7 @@
 
 #include "roman_string.h"
 #include "grouping.h"
+#include "sort.h"
 #include "cross_out.h"
 
 void cross_out_numerals(char* numeral, char* what_to_cross_out)
@@ -14,7 +15,7 @@ void cross_out_numerals(char* numeral, char* what_to_cross_out)
       while(!strchr(numeral, what_to_cross_out[i]) && strlen(numeral) != original_length)
       {
         original_length = strlen(numeral);
-        expand_group(numeral, 0);  
+        expand_next_smallest_group(numeral);  
       }
       replace_substring_once(numeral, (char[2]){what_to_cross_out[i], '\0'}, "");
    }	

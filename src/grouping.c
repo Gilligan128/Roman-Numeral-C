@@ -6,50 +6,46 @@
 #include "grouping.h"
 
 typedef struct {
- char * group;
- char replacement;
-} Replacement;
+ char* expanded;
+ char* combined;
+} NumeralGroup;
 
-const Replacement groups[] = {
- {"IIIII", 'V'},
- {"VV", 'X'},
- {"XXXXX", 'L'},
- {"LL", 'C'},
- {"CCCCC", 'D'},
- {"DD", 'M'}
+static const NumeralGroup groups[] = {
+ {"IIIII", "V"},
+ {"VV", "X"},
+ {"XXXXX", "L"},
+ {"LL", "C"},
+ {"CCCCC", "D"},
+ {"DD", "M"}
 };
 
-void replace_group(char * numeral, Replacement group)
-{
-  replace_substring(numeral, group.group, (char[2]){group.replacement, '\0'});
-}
 
 void combine_groups(char * numeral)
 { 
   int i;
-  for(i=0;i<(sizeof(groups)/sizeof(Replacement));i++)
+  for(i=0;i<(sizeof(groups)/sizeof(NumeralGroup));i++)
   {
-    replace_group(numeral, groups[i]);
+   replace_substring(numeral, groups[i].expanded, groups[i].combined);
   }
 }
 
-void expand_group(char* numeral, int group_index)
+void expand_next_smallest_group(char* numeral)
 {  
    if(strlen(numeral) == 0)
      return;
-
+   
    char buffer[40];
    for(int i=0;i<6;i++)
    {
-     if(groups[i].replacement == numeral[group_index])
+     if(strstr(numeral, groups[i].combined))
      {
-      strncpy(buffer, numeral, group_index+1);
-      sprintf(buffer+group_index, "%s%s", groups[i].group, numeral+group_index+1);
-      strcpy(numeral, buffer);
+      replace_substring_once(numeral, groups[i].combined, groups[i].expanded);
       break;
      }
    }
 }
+
+
 
 
 

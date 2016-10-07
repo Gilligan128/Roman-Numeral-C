@@ -41,13 +41,14 @@ static const GroupingScenario expansion_scenarios[] =
   {"", ""},
   {"V", "IIIII"},
   {"X", "VV"},
+  {"XV", "XIIIII"}
 };
 
 START_TEST(expands_groups)
 { 
   char buffer[4096];
   strcpy(buffer, expansion_scenarios[_i].input);
-  expand_group(buffer, 0);
+  expand_next_smallest_group(buffer);
   ck_assert_str_eq(expansion_scenarios[_i].expected, buffer);
 }
 END_TEST
