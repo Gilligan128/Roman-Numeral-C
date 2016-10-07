@@ -2,7 +2,7 @@
 #include <string.h>
 #include "sort.h"
 
-static char NumeralSorts[] = {  //is this cheating?
+static char NumeralSorts[] = {  
   'I',
   'V',
   'X',
