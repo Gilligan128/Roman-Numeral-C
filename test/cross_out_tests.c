@@ -11,7 +11,7 @@ typedef struct  {
 static const CrossOutScenario cross_out_scenarios[] = {
   {"I", "I", ""},
   {"I", "II", ""},
-  //{"II", "I", "I"},
+  {"II", "I", "I"},
   //{"V", "I", "IIII"},
   //{"VV", "I", "VIIII"}
 };
