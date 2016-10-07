@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "roman_string.h"
 #include "grouping.h"
@@ -7,26 +8,14 @@
 
 void cross_out_numerals(char* numeral, char* what_to_cross_out)
 {
-  int original_length = strlen(numeral);
-  if(strlen(numeral) < strlen(what_to_cross_out))
-  { 
-    strcpy(numeral, "");
-    return;
-  }
-  
-  //for(int cross_out_index=0;cross_out_index<strlen(what_to_cross_out);i++)
-  
-  if(strchr(numeral, what_to_cross_out[0])) 
-  {
-     replace_substring_once(numeral, (char[2]){what_to_cross_out[0], '\0'}, "");
-  }
-  else 
-  {
-   while(!strchr(numeral, what_to_cross_out[0]))
+   for(int i=0;i<strlen(what_to_cross_out);i++)
    {
-    expand_group(numeral, 0);
-    replace_substring_once(numeral, (char[2]){what_to_cross_out[0], '\0'}, "");
-   }
-  }
- 	
-} //xI - V
+      int original_length = 0;
+      while(!strchr(numeral, what_to_cross_out[i]) && strlen(numeral) != original_length)
+      {
+        original_length = strlen(numeral);
+        expand_group(numeral, 0);  
+      }
+      replace_substring_once(numeral, (char[2]){what_to_cross_out[i], '\0'}, "");
+   }	
+} 
