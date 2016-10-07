@@ -12,7 +12,7 @@ static const CrossOutScenario cross_out_scenarios[] = {
   {"I", "I", ""},
   {"I", "II", ""},
   {"II", "I", "I"},
-  //{"V", "I", "IIII"},
+  {"V", "I", "IIII"},
   //{"VV", "I", "VIIII"}
 };
 

@@ -19,5 +19,10 @@ void cross_out_numerals(char* numeral, char* what_to_cross_out)
   {
      replace_substring_once(numeral, (char[2]){what_to_cross_out[0], '\0'}, "");
   }
+  else 
+  {
+    expand_group(numeral, 0);
+    replace_substring_once(numeral, (char[2]){what_to_cross_out[0], '\0'}, "");
+  }
  	
 } //xI - V
