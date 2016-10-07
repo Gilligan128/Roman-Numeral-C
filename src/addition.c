@@ -1,13 +1,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "addition.h"
+#include "roman_math.h"
 #include "sort.h"
 #include "subtractives.h"
 #include "grouping.h"
 
 
-char* add_numerals(char * result,const char * first_numeral, const char * second_numeral)
+void add_numerals(char * result,const char * first_numeral, const char * second_numeral)
 {
    const int MAX_NUMERAL = 40;
    result[0] = '\0';

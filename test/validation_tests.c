@@ -1,7 +1,7 @@
 #include <check.h>
 #include <stdbool.h>
 
-#include "../src/validate.h"
+#include "../src/roman_math.h"
 
 typedef struct 
 {

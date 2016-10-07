@@ -1,5 +1,5 @@
 #include <check.h>
-#include "../src/addition.h"
+#include "../src/roman_math.h"
 
 START_TEST (adds_simple_numeral_to_nothing)
 {

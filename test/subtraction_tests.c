@@ -1,13 +1,21 @@
 #include <stdlib.h>
 #include <check.h>
 
-#include "../src/subtraction.h"
+#include "../src/roman_math.h"
 
 START_TEST(subtracts_nothing)
 {
   char result[4] = "";
-  subtract_numerals(result, "1", "");
-  ck_assert_str_eq("1", result);
+  subtract_numerals(result, "I", "");
+  ck_assert_str_eq("I", result);
+}
+END_TEST
+
+START_TEST(subtracts_complex_numeral)
+{
+  char result[20] = "";
+  subtract_numerals(result, "CXXIX", "XLIII");
+  ck_assert_str_eq("LXXVI", result);
 }
 END_TEST
 
