@@ -6,11 +6,11 @@
 
 ValidationResult error(char* message)
 {
-  ValidationResult error = {1};
+  ValidationResult error = {false, message};
   return error;
 }
 
-const char numeral_digits[] = {
+static const char numeral_digits[] = {
  'I',
  'V',
  'X',
@@ -20,7 +20,7 @@ const char numeral_digits[] = {
  'M'
 };
 
-bool is_numeral(char numeral_candidate)
+static bool is_numeral(char numeral_candidate)
 {
    int i; 
    for(i=0; i<7; i++)
@@ -35,7 +35,10 @@ bool is_numeral(char numeral_candidate)
 
 ValidationResult validate_numeral(char* numeral)
 {
-  ValidationResult result = {0, ""};
+  ValidationResult result = {true, ""};
+  if(strlen(numeral) > 20)
+    return error("numeral too long");
+
   int char_i;
   for(char_i=0;char_i<strlen(numeral);char_i++)
   {

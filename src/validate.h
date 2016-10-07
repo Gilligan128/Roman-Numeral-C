@@ -1,9 +1,11 @@
 #ifndef VALIDATION
 #define VALIDATION
 
+#include <stdbool.h>
+
 typedef struct
 {
-  int code;
+  bool success;
   char* message;
 } ValidationResult;
 
