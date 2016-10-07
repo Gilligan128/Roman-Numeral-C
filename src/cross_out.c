@@ -15,7 +15,7 @@ void cross_out_numerals(char* numeral, char* what_to_cross_out)
       while(!strchr(numeral, what_to_cross_out[i]) && strlen(numeral) != original_length)
       {
         original_length = strlen(numeral);
-        expand_next_smallest_group(numeral);  
+        expand_smallest_group_greater_than(numeral, what_to_cross_out[i]);  
       }
       replace_substring_once(numeral, (char[2]){what_to_cross_out[i], '\0'}, "");
    }	

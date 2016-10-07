@@ -36,19 +36,27 @@ START_TEST(groups_in_correct_order_of_precedence)
 }
 END_TEST
 
-static const GroupingScenario expansion_scenarios[] = 
+typedef struct 
 {
-  {"", ""},
-  {"V", "IIIII"},
-  {"X", "VV"},
-  {"XV", "XIIIII"}
+  char* numeral;
+  char group;
+  char* expected;
+}ExpansionScenario;
+
+static const ExpansionScenario expansion_scenarios[] = 
+{
+  {"", 'I', ""},
+  {"V", 'I', "IIIII"},
+  {"X", 'I', "VV"},
+  {"XV", 'I', "XIIIII"},
+  {"XV", 'V', "VVV"}
 };
 
 START_TEST(expands_groups)
 { 
   char buffer[4096];
-  strcpy(buffer, expansion_scenarios[_i].input);
-  expand_next_smallest_group(buffer);
+  strcpy(buffer, expansion_scenarios[_i].numeral);
+  expand_smallest_group_greater_than(buffer, expansion_scenarios[_i].group);
   ck_assert_str_eq(expansion_scenarios[_i].expected, buffer);
 }
 END_TEST
@@ -58,6 +66,6 @@ TCase* grouping_tests(void)
   TCase* grouping = tcase_create("grouping");
   tcase_add_loop_test(grouping, groups_properly, 0, sizeof(grouping_scenarios)/sizeof(GroupingScenario));
   tcase_add_test(grouping, groups_in_correct_order_of_precedence);
-  tcase_add_loop_test(grouping, expands_groups, 0, sizeof(expansion_scenarios)/sizeof(GroupingScenario));
+  tcase_add_loop_test(grouping, expands_groups, 0, sizeof(expansion_scenarios)/sizeof(ExpansionScenario));
   return grouping;
 }

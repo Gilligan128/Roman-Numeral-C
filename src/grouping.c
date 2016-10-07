@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "roman_string.h"
 #include "grouping.h"
@@ -19,7 +20,6 @@ static const NumeralGroup groups[] = {
  {"DD", "M"}
 };
 
-
 void combine_groups(char * numeral)
 { 
   int i;
@@ -29,19 +29,25 @@ void combine_groups(char * numeral)
   }
 }
 
-void expand_next_smallest_group(char* numeral)
+void expand_smallest_group_greater_than(char* numeral, char group_to_be_greater_than)
 {  
    if(strlen(numeral) == 0)
      return;
    
    char buffer[40];
+   bool is_greater_than_group = false;
+   if(group_to_be_greater_than == 'I')
+     is_greater_than_group = true;
    for(int i=0;i<6;i++)
    {
-     if(strstr(numeral, groups[i].combined))
+     if(strstr(numeral, groups[i].combined) && is_greater_than_group)
      {
       replace_substring_once(numeral, groups[i].combined, groups[i].expanded);
       break;
      }
+     
+     if(groups[i].combined[0] == group_to_be_greater_than)
+       is_greater_than_group = true;
    }
 }
 
