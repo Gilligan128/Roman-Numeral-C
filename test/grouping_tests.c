@@ -4,9 +4,9 @@
 typedef struct  {
  char* input;
  char* expected;
-} InputExpectedPair;
+} GroupingScenario;
 
-const InputExpectedPair grouping_scenarios[] = 
+const GroupingScenario grouping_scenarios[] = 
 {
   {"", ""},
   {"VV", "X"},
@@ -36,10 +36,27 @@ START_TEST(groups_in_correct_order_of_precedence)
 }
 END_TEST
 
+static const GroupingScenario expansion_scenarios[] = 
+{
+  {"", ""},
+  {"V", "IIIII"},
+  {"X", "VV"},
+};
+
+START_TEST(expands_groups)
+{ 
+  char buffer[4096];
+  strcpy(buffer, expansion_scenarios[_i].input);
+  expand_group(buffer, 0);
+  ck_assert_str_eq(expansion_scenarios[_i].expected, buffer);
+}
+END_TEST
+
 TCase* grouping_tests(void)
 {
   TCase* grouping = tcase_create("grouping");
-  tcase_add_loop_test(grouping, groups_properly, 0, sizeof(grouping_scenarios)/sizeof(InputExpectedPair));
+  tcase_add_loop_test(grouping, groups_properly, 0, sizeof(grouping_scenarios)/sizeof(GroupingScenario));
   tcase_add_test(grouping, groups_in_correct_order_of_precedence);
+  tcase_add_loop_test(grouping, expands_groups, 0, sizeof(expansion_scenarios)/sizeof(GroupingScenario));
   return grouping;
 }
