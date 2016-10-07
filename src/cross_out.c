@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "roman_string.h"
+#include "grouping.h"
 #include "cross_out.h"
 
 void cross_out_numerals(char* numeral, char* what_to_cross_out)
@@ -21,8 +22,11 @@ void cross_out_numerals(char* numeral, char* what_to_cross_out)
   }
   else 
   {
+   while(!strchr(numeral, what_to_cross_out[0]))
+   {
     expand_group(numeral, 0);
     replace_substring_once(numeral, (char[2]){what_to_cross_out[0], '\0'}, "");
+   }
   }
  	
 } //xI - V
