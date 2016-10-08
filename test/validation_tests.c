@@ -24,15 +24,17 @@ const InputExpectedPair validation_scenarios[] = {
 
 START_TEST(must_be_valid_numeral)
 {
-  ValidationResult actual = validate_numeral(validation_scenarios[_i].input);
-  ck_assert(validation_scenarios[_i].expected == actual.success);
+  char error_message[40];
+  bool actual = validate_numeral(error_message, validation_scenarios[_i].input);
+  ck_assert(validation_scenarios[_i].expected == actual);
 }
 END_TEST
 
 START_TEST(must_be_less_than_20_characters)
 { 
-  ValidationResult actual = validate_numeral("IIIIIIIIIIIIIIIIIIIII");
-  ck_assert(!actual.success);
+  char error_message[40];
+  bool actual = validate_numeral(error_message, "IIIIIIIIIIIIIIIIIIIII");
+  ck_assert(!actual);
 }
 END_TEST
 

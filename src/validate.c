@@ -4,6 +4,13 @@
 #include "roman_math.h"
 
 
+typedef struct
+{
+  bool success;
+  char* message;
+} ValidationResult;
+
+
 ValidationResult error(char* message)
 {
   ValidationResult error = {false, message};
@@ -33,17 +40,22 @@ static bool is_numeral(char numeral_candidate)
    return false;
 }
 
-ValidationResult validate_numeral(char* numeral)
+bool validate_numeral(char* potential_error_message, char* numeral)
 {
-  ValidationResult result = {true, ""};
   if(strlen(numeral) > 20)
-    return error("numeral too long");
+  {
+    strcpy(potential_error_message, "numeral too long");
+    return false;
+  }
 
   int char_i;
   for(char_i=0;char_i<strlen(numeral);char_i++)
   {
    if(!is_numeral(numeral[char_i]))
-     return error("invalid numeral");
+   {
+     strcpy(potential_error_message, "invalid numeral");
+     return false;
+   } 
   }
-  return result;
-};
+  return true;
+}

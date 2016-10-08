@@ -38,6 +38,7 @@ void expand_smallest_group_greater_than(char* numeral, char group_to_be_greater_
    bool is_greater_than_group = false;
    if(group_to_be_greater_than == 'I')
      is_greater_than_group = true;
+     
    for(int i=0;i<6;i++)
    {
      if(strstr(numeral, groups[i].combined) && is_greater_than_group)
