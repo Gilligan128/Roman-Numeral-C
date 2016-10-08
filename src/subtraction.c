@@ -6,7 +6,7 @@
 #include "cross_out.h"
 #include "roman_math.h"
 
-void subtract_numerals(char* result, const char* first_numeral, const char* second_numeral)
+void subtract_numerals(char* result,size_t result_length, const char* first_numeral, const char* second_numeral)
 {
   const int MAX_NUMERAL = 40;
   result[0] = '\0';
