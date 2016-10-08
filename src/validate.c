@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "roman_math.h"
+#include "validate.h"
 
 static const char numeral_digits[] = {
  'I',
@@ -30,10 +31,9 @@ static bool is_numeral(char numeral_candidate)
 
 bool validate_numeral(char* potential_error_message,const char* numeral)
 {
-  size_t buffer_length = strlen(potential_error_message);
   if(strlen(numeral) > 20)
   {
-    strcpy(potential_error_message, "numeral too long");
+    fprintf(stderr, "VALIDATION ERROR: numeral too long\n");
     return false;
   }
 
@@ -42,9 +42,19 @@ bool validate_numeral(char* potential_error_message,const char* numeral)
   {
    if(!is_numeral(numeral[char_i]))
    {
-     strcpy(potential_error_message, "invalid numeral");
+     fprintf(stderr,"VALIDATION ERROR: invalid numeral\n");
      return false;
    } 
   }
   return true;
+}
+
+bool validate_buffer(char* buffer, size_t buffer_length)
+{
+   if(buffer_length < 81)
+   {
+       fprintf(stderr, "Buffer must be 81+ size", buffer_length);
+       return false; 
+   }
+   return true;
 }

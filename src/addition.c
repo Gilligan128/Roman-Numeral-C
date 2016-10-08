@@ -12,11 +12,8 @@ void add_numerals(char* result,size_t result_length, const char * first_numeral,
 {
    const int MAX_NUMERAL = 20;
    
-   if(result_length < 81)
-   {
-       sprintf(result, "%s", "Buffer must be 81+ size", result_length);
-       return;
-   }
+   if(!validate_buffer(result, result_length))
+    return;
 
    char first_numeral_substituted[MAX_NUMERAL];
    char second_numeral_substituted[MAX_NUMERAL];

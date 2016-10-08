@@ -2,6 +2,7 @@
 #include <stdbool.h>
 
 #include "../src/roman_math.h"
+#include "../src/validate.h"
 
 typedef struct 
 {
@@ -30,27 +31,30 @@ START_TEST(must_be_valid_numeral)
 }
 END_TEST
 
-START_TEST(must_be_less_than_20_characters)
+START_TEST(must_be_less_than_21_characters)
 { 
   char error_message[40];
-  bool actual = validate_numeral(error_message, "IIIIIIIIIIIIIIIIIIIII");
-  ck_assert(!actual);
+  bool result = validate_numeral(error_message, "IIIIIIIIIIIIIIIIIIIII");
+  ck_assert(!result);
 }
 END_TEST
 
-// START_TEST(will_partially_copy_error_messages)
-// {
-//   char error_message[3];
-//   bool actual = validate_numeral(error_message, "IIIIIIIIIIIIIIIIIIIII");
-//   ck_assert_str_eq("num", error_message);
-// }
-// END_TEST
+START_TEST (too_short_buffer_results_in_error)
+{
+        char result[80] = "";
+        
+        bool success = validate_buffer(result, 80);
+        
+        ck_assert(!success);
+}
+END_TEST
+
 
 TCase* validation_tests(void)
 {
-  TCase* validation = tcase_create("validation");
+  TCase* validation = tcase_create("numeral validation");
   tcase_add_loop_test(validation, must_be_valid_numeral, 0, sizeof(validation_scenarios)/sizeof(InputExpectedPair));
-  tcase_add_test(validation, must_be_less_than_20_characters);
-  //tcase_add_test(validation, will_partially_copy_error_messages);
+  tcase_add_test(validation, must_be_less_than_21_characters);
+  tcase_add_test(validation, too_short_buffer_results_in_error);
   return validation;
 }
