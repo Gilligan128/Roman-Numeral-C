@@ -33,7 +33,7 @@ bool validate_numeral(char* potential_error_message,const char* numeral)
   size_t buffer_length = strlen(potential_error_message);
   if(strlen(numeral) > 20)
   {
-    snprintf(potential_error_message, buffer_length, "%s",  "numeral too long");
+    strcpy(potential_error_message, "numeral too long");
     return false;
   }
 
@@ -42,7 +42,7 @@ bool validate_numeral(char* potential_error_message,const char* numeral)
   {
    if(!is_numeral(numeral[char_i]))
    {
-     snprintf(potential_error_message, buffer_length, "%s", "invalid numeral");
+     strcpy(potential_error_message, "invalid numeral");
      return false;
    } 
   }
