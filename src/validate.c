@@ -1,21 +1,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdio.h>
+
 #include "roman_math.h"
-
-
-typedef struct
-{
-  bool success;
-  char* message;
-} ValidationResult;
-
-
-ValidationResult error(char* message)
-{
-  ValidationResult error = {false, message};
-  return error;
-}
 
 static const char numeral_digits[] = {
  'I',
@@ -42,9 +30,10 @@ static bool is_numeral(char numeral_candidate)
 
 bool validate_numeral(char* potential_error_message, char* numeral)
 {
+  size_t buffer_length = strlen(potential_error_message);
   if(strlen(numeral) > 20)
   {
-    strcpy(potential_error_message, "numeral too long");
+     snprintf(potential_error_message, buffer_length, "%s",  "numeral too long");
     return false;
   }
 
@@ -53,7 +42,7 @@ bool validate_numeral(char* potential_error_message, char* numeral)
   {
    if(!is_numeral(numeral[char_i]))
    {
-     strcpy(potential_error_message, "invalid numeral");
+     snprintf(potential_error_message, buffer_length, "%s", "invalid numeral");
      return false;
    } 
   }
