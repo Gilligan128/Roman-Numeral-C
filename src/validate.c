@@ -28,12 +28,12 @@ static bool is_numeral(char numeral_candidate)
    return false;
 }
 
-bool validate_numeral(char* potential_error_message, char* numeral)
+bool validate_numeral(char* potential_error_message,const char* numeral)
 {
   size_t buffer_length = strlen(potential_error_message);
   if(strlen(numeral) > 20)
   {
-     snprintf(potential_error_message, buffer_length, "%s",  "numeral too long");
+    snprintf(potential_error_message, buffer_length, "%s",  "numeral too long");
     return false;
   }
 
