@@ -49,7 +49,7 @@ bool validate_numeral(char* potential_error_message,const char* numeral)
   return true;
 }
 
-bool validate_buffer(char* buffer, size_t buffer_length)
+bool validate_buffer(size_t buffer_length)
 {
    if(buffer_length < 81)
    {

@@ -40,12 +40,10 @@ START_TEST(must_be_less_than_21_characters)
 END_TEST
 
 START_TEST (too_short_buffer_results_in_error)
-{
-        char result[80] = "";
+{     
+  bool success = validate_buffer(80);
         
-        bool success = validate_buffer(result, 80);
-        
-        ck_assert(!success);
+  ck_assert(!success);
 }
 END_TEST
 
