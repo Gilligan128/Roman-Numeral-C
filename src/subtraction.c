@@ -9,6 +9,8 @@
 
 void subtract_numerals(char* result,size_t result_length, const char* first_numeral, const char* second_numeral)
 {
+  if(!validate_buffer(result))
+    return;
   result[0] = '\0';
   char first_numeral_substituted[MAX_NUMERAL_SIZE];
   char second_numeral_substituted[MAX_NUMERAL_SIZE];

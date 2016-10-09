@@ -29,7 +29,7 @@ static bool is_numeral(char numeral_candidate)
    return false;
 }
 
-bool validate_numeral(char* potential_error_message,const char* numeral)
+bool validate_numeral(const char* numeral)
 {
   if(strlen(numeral) > 20)
   {
@@ -53,7 +53,7 @@ bool validate_buffer(size_t buffer_length)
 {
    if(buffer_length < 81)
    {
-       fprintf(stderr, "Buffer must be 81+ size", buffer_length);
+       fprintf(stderr, "ERROR: Buffer must be 81+ size", buffer_length);
        return false; 
    }
    return true;
