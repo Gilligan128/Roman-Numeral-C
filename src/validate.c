@@ -4,7 +4,9 @@
 #include <stdio.h>
 
 #include "roman_math.h"
+#include "constants.h"
 #include "validate.h"
+
 
 static const char numeral_digits[] = {
  'I',
@@ -51,9 +53,9 @@ bool validate_numeral(const char* numeral)
 
 bool validate_buffer(size_t buffer_length)
 {
-   if(buffer_length < 81)
+   if(buffer_length < MAX_NUMERAL_SIZE*2)
    {
-       fprintf(stderr, "ERROR: Buffer must be 81+ size", buffer_length);
+       fprintf(stderr, "ERROR: Buffer must be %d+ size", MAX_NUMERAL_SIZE*2, buffer_length);
        return false; 
    }
    return true;

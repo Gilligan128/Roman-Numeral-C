@@ -39,7 +39,7 @@ END_TEST
 
 START_TEST (too_short_buffer_results_in_error)
 {     
-  bool success = validate_buffer(80);
+  bool success = validate_buffer(41);
         
   ck_assert(!success);
 }
