@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 //it is recommended to validate inputs with this before any other function use.
-bool validate_numeral(char* potential_error_message, const char* numeral);
+bool validate_numeral(const char* numeral);
 //assumes inputs already validated with validate_numeral().
 void add_numerals(char * result, size_t result_length, const char * firstNumeral, const char * secondNumeral);
 //assumes inputs already validated with validate_numeral().
