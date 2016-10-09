@@ -6,18 +6,17 @@
 #include "sort.h"
 #include "subtractives.h"
 #include "grouping.h"
+#include "constants.h"
 
 
 void add_numerals(char* result,size_t result_length, const char * first_numeral, const char * second_numeral)
-{
-   const int MAX_NUMERAL = 21;
-   
+{  
    if(!validate_buffer(result_length))
     return;
    
    result[0] = '\0';
-   char first_numeral_substituted[MAX_NUMERAL];
-   char second_numeral_substituted[MAX_NUMERAL];
+   char first_numeral_substituted[MAX_NUMERAL_SIZE];
+   char second_numeral_substituted[MAX_NUMERAL_SIZE];
    strcpy(first_numeral_substituted, first_numeral);
    strcpy(second_numeral_substituted, second_numeral);
    

@@ -5,13 +5,13 @@
 #include "subtractives.h"
 #include "cross_out.h"
 #include "roman_math.h"
+#include "constants.h"
 
 void subtract_numerals(char* result,size_t result_length, const char* first_numeral, const char* second_numeral)
 {
-  const int MAX_NUMERAL = 40;
   result[0] = '\0';
-  char first_numeral_substituted[MAX_NUMERAL];
-  char second_numeral_substituted[MAX_NUMERAL];
+  char first_numeral_substituted[MAX_NUMERAL_SIZE];
+  char second_numeral_substituted[MAX_NUMERAL_SIZE];
   strcpy(first_numeral_substituted, first_numeral);
   strcpy(second_numeral_substituted, second_numeral);
   
