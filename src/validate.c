@@ -61,8 +61,8 @@ static bool has_more_than_3_of(const char* numeral_candidate, char character)
 
 static bool has_more_than_3_per_IXCM(const char *numeral_candidate)
 {
-  const char no_more_than_3_of_these[] = {'I', 'X', 'C'};
-  for (int char_i = 0; char_i < 3; char_i++)
+  const char no_more_than_3_of_these[] = {'I', 'X', 'C', 'M'};
+  for (int char_i = 0; char_i < 4; char_i++)
   {
     if(has_more_than_3_of(numeral_candidate,no_more_than_3_of_these[char_i]))
       return true;
