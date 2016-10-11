@@ -53,5 +53,5 @@ bool validate_numeral(const char* numeral)
 
 bool validate_buffer(size_t buffer_length)
 {
-   return buffer_length < MAX_COMBINED_NUMERAL_SIZE);
+   return  MAX_COMBINED_NUMERAL_SIZE <= buffer_length;
 }

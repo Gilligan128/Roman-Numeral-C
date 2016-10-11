@@ -1,5 +1,5 @@
 
-CFLAGS = -std=gnu99 -Wall -Wpedantic
+CFLAGS = -std=gnu99 -Wall
 LIBS = `pkg-config --libs check`
 VPATH=../src   
 TEST_OBJECTS := $(patsubst %.c,%.o,$(wildcard *.c))
