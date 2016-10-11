@@ -19,21 +19,21 @@ const InputExpectedPair validation_scenarios[] = {
   {"D", SUCCESS},
   {"M", SUCCESS},
   {"MDCLXVI", SUCCESS},
-  {"A", INVALID},
-  {"MAAAA", INVALID}
+  {"A", NOT_A_NUMERAL},
+  {"MAAAA", NOT_A_NUMERAL}
 };
 
 START_TEST(must_be_valid_numeral)
 {
-  VALIDATION_RESULT actual = validate_numeral(validation_scenarios[_i].input);
-  ck_assert_int_eq(actual, validation_scenarios[_i].expected);
+  VALIDATION_RESULT result = validate_numeral(validation_scenarios[_i].input);
+  ck_assert_int_eq(result, validation_scenarios[_i].expected);
 }
 END_TEST
 
 START_TEST(must_be_less_than_21_characters)
 { 
   VALIDATION_RESULT result = validate_numeral("IIIIIIIIIIIIIIIIIIIII");
-  ck_assert(result != SUCCESS);
+  ck_assert_int_eq(result, INVALID);
 }
 END_TEST
 

@@ -6,7 +6,8 @@
 
 typedef enum {
   SUCCESS,
-  INVALID
+  INVALID,
+  NOT_A_NUMERAL
 } VALIDATION_RESULT;
 
 //it is recommended to validate inputs with this before any other function use.
