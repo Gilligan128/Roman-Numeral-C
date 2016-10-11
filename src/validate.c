@@ -46,22 +46,31 @@ static bool is_too_long(const char *numeral_candidate)
   return strlen(numeral_candidate) > 20;
 }
 
-static bool is_more_than_3_per_IXCM(const char *numeral_candidate)
+static bool has_more_than_3_of(const char* numeral_candidate, char character)
 {
-  const char no_more_than_3_of_these[] = {'I', 'X'};
-  for (int char_i = 0; char_i < 2; char_i++)
-  {
-    int count = 0;
-    for (int candidate_i = 0; candidate_i < strlen(numeral_candidate); candidate_i++)
+  int count = 0;
+  for (int candidate_i = 0; candidate_i < strlen(numeral_candidate); candidate_i++)
     {
-      if (numeral_candidate[candidate_i] == no_more_than_3_of_these[char_i])
+      if (numeral_candidate[candidate_i] == character)
         count++;
       if (count > 3)
         return true;
     }
+  return false;
+}
+
+static bool has_more_than_3_per_IXCM(const char *numeral_candidate)
+{
+  const char no_more_than_3_of_these[] = {'I', 'X', 'C'};
+  for (int char_i = 0; char_i < 3; char_i++)
+  {
+    if(has_more_than_3_of(numeral_candidate,no_more_than_3_of_these[char_i]))
+      return true;
   }
   return false;
 }
+
+
 
 ValidationResult validate_numeral(const char *numeral_candidate)
 {
@@ -71,7 +80,7 @@ ValidationResult validate_numeral(const char *numeral_candidate)
   if (is_not_a_numeral(numeral_candidate))
     return NOT_A_NUMERAL;
 
-  if (is_more_than_3_per_IXCM(numeral_candidate))
+  if (has_more_than_3_per_IXCM(numeral_candidate))
     return MORE_THAN_3_PER_IXCM;
   return SUCCESS;
 }

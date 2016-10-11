@@ -48,7 +48,8 @@ END_TEST
 const ValidationScenario less_than_or_equal_to_3_scenarios[] = {
   {"IIII", MORE_THAN_3_PER_IXCM},
   {"IIIII", MORE_THAN_3_PER_IXCM},
-  {"XXXX", MORE_THAN_3_PER_IXCM}
+  {"XXXX", MORE_THAN_3_PER_IXCM},
+  {"CCCC",MORE_THAN_3_PER_IXCM }
 };
 
 START_TEST (must_have_3_or_less_per_digit)
