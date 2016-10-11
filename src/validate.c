@@ -18,7 +18,7 @@ static const char numeral_digits[] = {
  'M'
 };
 
-static bool is_numeral(char numeral_candidate)
+static bool is_character_a_numeral(char numeral_candidate)
 {
    int i; 
    for(i=0; i<7; i++)
@@ -31,21 +31,30 @@ static bool is_numeral(char numeral_candidate)
    return false;
 }
 
-VALIDATION_RESULT validate_numeral(const char* numeral)
+static bool is_not_a_numeral(const char* numeral_candidate)
 {
-  if(strlen(numeral) > 20)
+  for(int char_i=0;char_i<strlen(numeral_candidate);char_i++)
   {
-    return INVALID;
-  }
-
-  int char_i;
-  for(char_i=0;char_i<strlen(numeral);char_i++)
-  {
-   if(!is_numeral(numeral[char_i]))
+   if(!is_character_a_numeral(numeral_candidate[char_i]))
    {
-     return INVALID;
+     return true;
    } 
   }
+  return false;
+}
+
+static bool is_too_long(const char* numeral_candidate)
+{
+  return strlen(numeral_candidate) > 20;
+}
+
+ValidationResult validate_numeral(const char* numeral_candidate)
+{
+  if(is_too_long(numeral_candidate))
+    return TOO_LONG;
+    
+  if(is_not_a_numeral(numeral_candidate)) 
+     return NOT_A_NUMERAL;
   return SUCCESS;
 }
 

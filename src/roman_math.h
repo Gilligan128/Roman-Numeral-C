@@ -7,11 +7,12 @@
 typedef enum {
   SUCCESS,
   TOO_LONG,
-  NOT_A_NUMERAL
-} VALIDATION_RESULT;
+  NOT_A_NUMERAL,
+  MORE_THAN_3
+} ValidationResult;
 
 //it is recommended to validate inputs with this before any other function use.
-VALIDATION_RESULT validate_numeral(const char* numeral);
+ValidationResult validate_numeral(const char* numeral);
 
 //PRECONDITION: buffer size is at least 42 bytes.
 //PRECONDITION: inputs have already been validated via validate_numeral()
