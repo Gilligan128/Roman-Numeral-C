@@ -2,13 +2,15 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "constants.h"
+
 void replace_substring(char * search, char* substring, char* replacement)
 {
   while(1)
   { 
    if(strlen(substring) == 0)
      return;
-   char buffer[4096];
+   char buffer[MAX_NUMERAL_SIZE*2];
    char* location = strstr(search, substring);
     
    if(!location)
@@ -25,7 +27,7 @@ void replace_substring_once(char* search, char* substring, char* replacement)
 {
   if(strlen(substring) == 0)
      return;
-   char buffer[4096];
+   char buffer[MAX_COMBINED_NUMERAL_SIZE];
    char* location = strstr(search, substring);
     
    if(!location)

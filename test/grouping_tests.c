@@ -21,7 +21,7 @@ const GroupingScenario grouping_scenarios[] =
 
 START_TEST(groups_properly)
 {
-  char buffer[4096];
+  char buffer[10];
   strcpy(buffer, grouping_scenarios[_i].input);
   combine_groups(buffer);
   ck_assert_str_eq(grouping_scenarios[_i].expected, buffer);
@@ -54,7 +54,7 @@ static const ExpansionScenario expansion_scenarios[] =
 
 START_TEST(expands_groups)
 { 
-  char buffer[4096];
+  char buffer[10];
   strcpy(buffer, expansion_scenarios[_i].numeral);
   expand_smallest_group_greater_than(buffer, expansion_scenarios[_i].group);
   ck_assert_str_eq(expansion_scenarios[_i].expected, buffer);

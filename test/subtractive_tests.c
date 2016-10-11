@@ -1,9 +1,8 @@
 #include <check.h>
-#include "../src/subtractives.h"
 
-//since these tests will look really familiar to the grouping tests, I will start htem off as a loop test
-//some of this is duplciated from grouping tests but, following the "Rule of 3",
-//I won't merge the code until I have 3 instances of it so I know for sure its actual duplication.
+#include "../src/subtractives.h"
+#include "../src/constants.h"
+
 typedef struct  {
  char* input;
  char* expected;
@@ -21,7 +20,7 @@ const InputExpectedPair substitute_out_scenarios[] = {
 
 START_TEST(substitutes_out_properly)
 {
-  char buffer[4096];
+  char buffer[10];
   strcpy(buffer, substitute_out_scenarios[_i].input);
   substitute_out_subtractives(buffer);
   ck_assert_str_eq(substitute_out_scenarios[_i].expected, buffer);
@@ -41,7 +40,7 @@ const InputExpectedPair substitute_in_scenarios[] = {
 
 START_TEST(substitutes_in_properly)
 {
-  char buffer[4096];
+  char buffer[MAX_COMBINED_NUMERAL_SIZE];
   strcpy(buffer, substitute_in_scenarios[_i].input);
   substitute_in_subtractives(buffer);
   ck_assert_str_eq(substitute_in_scenarios[_i].expected, buffer);
