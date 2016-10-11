@@ -34,3 +34,6 @@
 
 #gedit likes to create backups
 *.*~
+
+#app-specific
+test/run_all_tests
