@@ -7,7 +7,7 @@
 #include "subtractives.h"
 #include "grouping.h"
 #include "constants.h"
-//#include "validate.h"
+#include "validate.h"
 
 
 void add_numerals(char* result,size_t result_length, const char * first_numeral, const char * second_numeral)
