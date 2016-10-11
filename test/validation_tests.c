@@ -45,13 +45,15 @@ START_TEST (too_short_buffer_results_in_error)
 }
 END_TEST
 
-const ValidationScenario less_than_3_scenarios[] = {
-  {"IIII", MORE_THAN_3_PER_DIGIT}
+const ValidationScenario less_than_or_equal_to_3_scenarios[] = {
+  {"IIII", MORE_THAN_3_PER_IXCM},
+  {"IIIII", MORE_THAN_3_PER_IXCM},
+  //{"XXXX", MORE_THAN_3_PER_IXCM}
 };
 
 START_TEST (must_have_3_or_less_per_digit)
-  ValidationResult result = validate_numeral(less_than_3_scenarios[_i].input);
-  ck_assert_int_eq(result, less_than_3_scenarios[_i].expected);
+  ValidationResult result = validate_numeral(less_than_or_equal_to_3_scenarios[_i].input);
+  ck_assert_int_eq(result, less_than_or_equal_to_3_scenarios[_i].expected);
 END_TEST
 
 
@@ -62,6 +64,6 @@ TCase* validation_tests(void)
   tcase_add_loop_test(validation, must_be_valid_numeral, 0, sizeof(valid_numeral_scenarios)/scenario_size);
   tcase_add_test(validation, must_be_less_than_21_characters);
   tcase_add_test(validation, too_short_buffer_results_in_error);
-  tcase_add_loop_test(validation, must_have_3_or_less_per_digit, 0, sizeof(less_than_3_scenarios)/scenario_size);
+  tcase_add_loop_test(validation, must_have_3_or_less_per_digit, 0, sizeof(less_than_or_equal_to_3_scenarios)/scenario_size);
   return validation;
 }
