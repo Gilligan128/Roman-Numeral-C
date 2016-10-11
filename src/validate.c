@@ -48,13 +48,21 @@ static bool is_too_long(const char* numeral_candidate)
   return strlen(numeral_candidate) > 20;
 }
 
+static bool is_more_than_3_per_digit(const char* numeral_candidate)
+{
+  return strcmp("IIII",numeral_candidate) == 0;
+}
+
 ValidationResult validate_numeral(const char* numeral_candidate)
 {
   if(is_too_long(numeral_candidate))
     return TOO_LONG;
-    
+
   if(is_not_a_numeral(numeral_candidate)) 
      return NOT_A_NUMERAL;
+
+  if(is_more_than_3_per_digit(numeral_candidate))
+    return MORE_THAN_3_PER_DIGIT;
   return SUCCESS;
 }
 
