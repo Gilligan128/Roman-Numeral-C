@@ -7,6 +7,7 @@
 #include "subtractives.h"
 #include "grouping.h"
 #include "constants.h"
+//#include "validate.h"
 
 
 void add_numerals(char* result,size_t result_length, const char * first_numeral, const char * second_numeral)
@@ -27,7 +28,6 @@ void add_numerals(char* result,size_t result_length, const char * first_numeral,
    sort_descending(result);
    combine_groups(result);
    substitute_in_subtractives(result);
-   return result;
 }
 
 
