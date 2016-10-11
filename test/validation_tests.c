@@ -33,7 +33,7 @@ END_TEST
 START_TEST(must_be_less_than_21_characters)
 { 
   VALIDATION_RESULT result = validate_numeral("IIIIIIIIIIIIIIIIIIIII");
-  ck_assert_int_eq(result, INVALID);
+  ck_assert_int_eq(result, TOO_LONG);
 }
 END_TEST
 

@@ -6,7 +6,7 @@
 
 typedef enum {
   SUCCESS,
-  INVALID,
+  TOO_LONG,
   NOT_A_NUMERAL
 } VALIDATION_RESULT;
 
