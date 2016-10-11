@@ -35,7 +35,6 @@ VALIDATION_RESULT validate_numeral(const char* numeral)
 {
   if(strlen(numeral) > 20)
   {
-    fprintf(stderr, "VALIDATION ERROR: numeral too long\n");
     return INVALID;
   }
 
@@ -44,7 +43,6 @@ VALIDATION_RESULT validate_numeral(const char* numeral)
   {
    if(!is_numeral(numeral[char_i]))
    {
-     fprintf(stderr,"VALIDATION ERROR: invalid numeral\n");
      return INVALID;
    } 
   }
