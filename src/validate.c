@@ -31,12 +31,12 @@ static bool is_numeral(char numeral_candidate)
    return false;
 }
 
-bool validate_numeral(const char* numeral)
+VALIDATION_RESULT validate_numeral(const char* numeral)
 {
   if(strlen(numeral) > 20)
   {
     fprintf(stderr, "VALIDATION ERROR: numeral too long\n");
-    return false;
+    return INVALID;
   }
 
   int char_i;
@@ -45,10 +45,10 @@ bool validate_numeral(const char* numeral)
    if(!is_numeral(numeral[char_i]))
    {
      fprintf(stderr,"VALIDATION ERROR: invalid numeral\n");
-     return false;
+     return INVALID;
    } 
   }
-  return true;
+  return SUCCESS;
 }
 
 bool validate_buffer(size_t buffer_length)

@@ -11,37 +11,37 @@ typedef struct
 }InputExpectedPair;
 
 const InputExpectedPair validation_scenarios[] = {
-  {"I", true},
-  {"V", true},
-  {"X", true},
-  {"L", true},
-  {"C", true},
-  {"D", true},
-  {"M", true},
-  {"MDCLXVI", true},
-  {"A", false},
-  {"MAAAA", false}
+  {"I", SUCCESS},
+  {"V", SUCCESS},
+  {"X", SUCCESS},
+  {"L", SUCCESS},
+  {"C", SUCCESS},
+  {"D", SUCCESS},
+  {"M", SUCCESS},
+  {"MDCLXVI", SUCCESS},
+  {"A", INVALID},
+  {"MAAAA", INVALID}
 };
 
 START_TEST(must_be_valid_numeral)
 {
-  bool actual = validate_numeral(validation_scenarios[_i].input);
-  ck_assert(validation_scenarios[_i].expected == actual);
+  VALIDATION_RESULT actual = validate_numeral(validation_scenarios[_i].input);
+  ck_assert_int_eq(actual, validation_scenarios[_i].expected);
 }
 END_TEST
 
 START_TEST(must_be_less_than_21_characters)
 { 
-  bool result = validate_numeral("IIIIIIIIIIIIIIIIIIIII");
-  ck_assert(!result);
+  VALIDATION_RESULT result = validate_numeral("IIIIIIIIIIIIIIIIIIIII");
+  ck_assert(result != SUCCESS);
 }
 END_TEST
 
 START_TEST (too_short_buffer_results_in_error)
 {     
-  bool success = validate_buffer(41);
+  VALIDATION_RESULT success = validate_buffer(41);
         
-  ck_assert(!success);
+  ck_assert_int_eq(success,SUCCESS);
 }
 END_TEST
 
