@@ -46,7 +46,12 @@ START_TEST(substitutes_in_properly)
 END_TEST
 
 const InputExpectedPair subtractive_scenarios[] = {
-    {"IV", ""}};
+    {"IV", ""},
+    {"IX", ""},
+    {"XL", ""},
+    {"XC", ""},
+    {"CD", ""},
+    {"CM", ""}};
 START_TEST(removes_subtractives)
 {
   char buffer[MAX_COMBINED_NUMERAL_SIZE];

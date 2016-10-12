@@ -28,8 +28,7 @@ static int subtractive_count()
 
 void substitute_out_subtractives(char *numeral)
 {
-  int i;
-  for (i = 0; i < subtractive_count(); i++)
+  for (int i = 0; i < subtractive_count(); i++)
   {
     replace_substring(numeral, subtractives[i].contracted, subtractives[i].expanded);
   }
@@ -37,8 +36,7 @@ void substitute_out_subtractives(char *numeral)
 
 void substitute_in_subtractives(char *numeral)
 {
-  int i;
-  for (i = 0; i < subtractive_count(); i++)
+  for (int i = 0; i < subtractive_count(); i++)
   {
     replace_substring(numeral, subtractives[i].expanded, subtractives[i].contracted);
   }
@@ -46,5 +44,8 @@ void substitute_in_subtractives(char *numeral)
 
 void remove_subtractives(char *numeral)
 {
-  replace_substring(numeral, "IV", "");
+  for (int i = 0; i < subtractive_count(); i++)
+  {
+    replace_substring(numeral, subtractives[i].contracted, "");
+  }
 }
