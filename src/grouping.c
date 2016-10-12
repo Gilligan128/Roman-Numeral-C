@@ -33,8 +33,7 @@ void expand_smallest_group_greater_than(char* numeral, char group_to_be_greater_
 {  
    if(strlen(numeral) == 0)
      return;
-   
-   char buffer[40];
+
    bool is_greater_than_group = false;
    if(group_to_be_greater_than == 'I')
      is_greater_than_group = true;
