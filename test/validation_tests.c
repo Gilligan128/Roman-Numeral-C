@@ -29,13 +29,6 @@ START_TEST(must_be_valid_numeral)
 }
 END_TEST
 
-START_TEST(must_be_less_than_21_characters)
-{
-  ValidationResult result = validate_numeral("IIIIIIIIIIIIIIIIIIIII");
-  ck_assert_int_eq(result, TOO_LONG);
-}
-END_TEST
-
 START_TEST(too_short_buffer_results_in_error)
 {
   bool success = validate_buffer(41);
@@ -73,7 +66,6 @@ TCase *validation_tests(void)
   size_t string_size = sizeof(char *);
   TCase *validation = tcase_create("numeral validation");
   tcase_add_loop_test(validation, must_be_valid_numeral, 0, sizeof(valid_numeral_scenarios) / scenario_size);
-  tcase_add_test(validation, must_be_less_than_21_characters);
   tcase_add_test(validation, too_short_buffer_results_in_error);
   tcase_add_loop_test(validation, must_have_3_or_less_per_digit, 0, sizeof(less_than_or_equal_to_3_scenarios) / string_size);
   tcase_add_loop_test(validation, must_have_only_1_per_digit, 0, sizeof(only_1_scenarios) / string_size);

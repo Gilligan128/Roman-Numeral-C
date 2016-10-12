@@ -1,4 +1,4 @@
 #include "constants.h"
 
-const int MAX_NUMERAL_SIZE = 21; //max value 3999 + null-terminator
-const int MAX_COMBINED_NUMERAL_SIZE = 42; //two numerals
+const int MAX_NUMERAL_SIZE = 22; //accounts for expanded subtractives, null-terminator, and no more than 3/1 per digit
+const int MAX_COMBINED_NUMERAL_SIZE = 44; 

@@ -41,11 +41,6 @@ static bool is_not_a_numeral(const char *numeral_candidate)
   return false;
 }
 
-static bool is_too_long(const char *numeral_candidate)
-{
-  return strlen(numeral_candidate) > 20;
-}
-
 static bool has_more_than_n_of(const char *numeral_candidate, int n, char character)
 {
   int count = 0;
@@ -75,7 +70,7 @@ static bool has_more_than_1_per_VLD(const char *numeral_candidate)
   const char only_1_of_these[] = {'V', 'L', 'D'};
   for (int char_i = 0; char_i < sizeof(only_1_of_these); char_i++)
   {
-    if(has_more_than_n_of(numeral_candidate, 1, only_1_of_these[char_i]))
+    if (has_more_than_n_of(numeral_candidate, 1, only_1_of_these[char_i]))
       return true;
   }
   return false;
@@ -83,9 +78,6 @@ static bool has_more_than_1_per_VLD(const char *numeral_candidate)
 
 ValidationResult validate_numeral(const char *numeral_candidate)
 {
-  if (is_too_long(numeral_candidate))
-    return TOO_LONG;
-
   if (is_not_a_numeral(numeral_candidate))
     return NOT_A_NUMERAL;
 
