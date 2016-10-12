@@ -56,7 +56,8 @@ ck_assert_int_eq(result, MORE_THAN_3_PER_IXCM);
 END_TEST
 
 const char *only_1_scenarios[] = {
-    "VV"};
+    "VV",
+    "VVV"};
 START_TEST(must_have_only_1_per_digit)
 {
   ValidationResult result = validate_numeral(only_1_scenarios[_i]);
