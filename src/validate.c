@@ -62,7 +62,7 @@ static bool has_more_than_n_of(const char *numeral_candidate, int n, char charac
 static bool has_more_than_3_per_IXCM(const char *numeral_candidate)
 {
   const char no_more_than_3_of_these[] = {'I', 'X', 'C', 'M'};
-  for (int char_i = 0; char_i < 4; char_i++)
+  for (int char_i = 0; char_i < sizeof(no_more_than_3_of_these); char_i++)
   {
     if (has_more_than_n_of(numeral_candidate, 3, no_more_than_3_of_these[char_i]))
       return true;
@@ -72,7 +72,13 @@ static bool has_more_than_3_per_IXCM(const char *numeral_candidate)
 
 static bool has_more_than_1_per_VLD(const char *numeral_candidate)
 {
-  return has_more_than_n_of(numeral_candidate, 1, 'V');
+  const char only_1_of_these[] = {'V', 'L', 'D'};
+  for (int char_i = 0; char_i < sizeof(only_1_of_these); char_i++)
+  {
+    if(has_more_than_n_of(numeral_candidate, 1, only_1_of_these[char_i]))
+      return true;
+  }
+  return false;
 }
 
 ValidationResult validate_numeral(const char *numeral_candidate)

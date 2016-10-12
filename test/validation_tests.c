@@ -57,7 +57,9 @@ END_TEST
 
 const char *only_1_scenarios[] = {
     "VV",
-    "VVV"};
+    "VVV",
+    "LL",
+    "DD"};
 START_TEST(must_have_only_1_per_digit)
 {
   ValidationResult result = validate_numeral(only_1_scenarios[_i]);
