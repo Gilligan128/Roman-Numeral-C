@@ -2,19 +2,20 @@
 #include <check.h>
 
 #include "../src/roman_math.h"
+#include "../src/constants.h"
 
 START_TEST(subtracts_nothing)
 {
-  char result[4] = "";
-  subtract_numerals(result, 4, "I", "");
+  char result[MAX_COMBINED_NUMERAL_SIZE];
+  subtract_numerals(result, MAX_COMBINED_NUMERAL_SIZE, "I", "");
   ck_assert_str_eq("I", result);
 }
 END_TEST
 
 START_TEST(subtracts_complex_numeral)
 {
-  char result[20] = "";
-  subtract_numerals(result, 20, "CXXIX", "XLIII");
+  char result[MAX_COMBINED_NUMERAL_SIZE];
+  subtract_numerals(result, MAX_COMBINED_NUMERAL_SIZE, "CXXIX", "XLIII");
   ck_assert_str_eq("LXXXVI", result);
 }
 END_TEST

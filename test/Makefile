@@ -1,5 +1,5 @@
 
-CFLAGS = -std=gnu99 -Wall
+CFLAGS = -std=c99 -Wall -Werror
 LIBS = `pkg-config --libs check`
 VPATH=../src   
 TEST_OBJECTS := $(patsubst %.c,%.o,$(wildcard *.c))
@@ -18,4 +18,5 @@ memtest: run_all_tests
 
 clean:
 	rm -f *.o
+	rm -f ../src/*.o
 	rm -f run_all_tests

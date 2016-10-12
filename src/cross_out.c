@@ -21,7 +21,7 @@ void cross_out_numerals(char* numeral, char* what_to_cross_out)
       while(!strchr(numeral, what_to_cross_out[i]))
       {
         original_length = strlen(numeral);
-        expand_smallest_group_greater_than(numeral, what_to_cross_out[i]);  
+        expand_smallest_numeral_greater_than_currrent_numeral(numeral, what_to_cross_out[i]);  
         if(cannot_cross_out_enough(original_length, strlen(numeral)))
         {
 	         strcpy(numeral, "");

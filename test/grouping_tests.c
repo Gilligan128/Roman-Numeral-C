@@ -56,7 +56,7 @@ START_TEST(expands_groups)
 { 
   char buffer[10];
   strcpy(buffer, expansion_scenarios[_i].numeral);
-  expand_smallest_group_greater_than(buffer, expansion_scenarios[_i].group);
+  expand_smallest_numeral_greater_than_currrent_numeral(buffer, expansion_scenarios[_i].group);
   ck_assert_str_eq(expansion_scenarios[_i].expected, buffer);
 }
 END_TEST
