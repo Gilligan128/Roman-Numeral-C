@@ -11,7 +11,8 @@ typedef enum {
     MORE_THAN_1_PER_VLD
 } ValidationResult;
 
-//it is recommended to validate inputs with this before any other function use.
+//it is recommended to validate inputs with this before any other function and also 
+//validate output after any other function.
 ValidationResult validate_numeral(const char *numeral);
 
 //PRECONDITION: buffer size is at least 42 bytes.
