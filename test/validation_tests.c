@@ -32,7 +32,7 @@ END_TEST
 
 START_TEST(too_short_buffer_results_in_error)
 {
-  bool success = validate_buffer(MAX_COMBINED_NUMERAL_SIZE-1);
+  bool success = validate_buffer(MAX_COMBINED_NUMERAL_SIZE - 1);
 
   ck_assert(!success);
 }
@@ -61,6 +61,13 @@ START_TEST(must_have_only_1_per_digit)
 }
 END_TEST
 
+START_TEST(largest_numeral_is_valid)
+{
+  ValidationResult result = validate_numeral("MMMCMXCIX");
+  ck_assert_int_eq(result, SUCCESS);
+}
+END_TEST
+
 TCase *validation_tests(void)
 {
   size_t scenario_size = sizeof(ValidationScenario);
@@ -70,5 +77,6 @@ TCase *validation_tests(void)
   tcase_add_test(validation, too_short_buffer_results_in_error);
   tcase_add_loop_test(validation, must_have_3_or_less_per_digit, 0, sizeof(less_than_or_equal_to_3_scenarios) / string_size);
   tcase_add_loop_test(validation, must_have_only_1_per_digit, 0, sizeof(only_1_scenarios) / string_size);
+ // tcase_add_test(validation, largest_numeral_is_valid);
   return validation;
 }
