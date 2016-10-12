@@ -77,6 +77,6 @@ TCase *validation_tests(void)
   tcase_add_test(validation, too_short_buffer_results_in_error);
   tcase_add_loop_test(validation, must_have_3_or_less_per_digit, 0, sizeof(less_than_or_equal_to_3_scenarios) / string_size);
   tcase_add_loop_test(validation, must_have_only_1_per_digit, 0, sizeof(only_1_scenarios) / string_size);
- // tcase_add_test(validation, largest_numeral_is_valid);
+  tcase_add_test(validation, largest_numeral_is_valid);
   return validation;
 }

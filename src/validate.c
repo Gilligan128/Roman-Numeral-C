@@ -6,6 +6,7 @@
 #include "roman_math.h"
 #include "constants.h"
 #include "validate.h"
+#include "subtractives.h"
 
 static const char numeral_digits[] = {
     'I',
@@ -78,13 +79,17 @@ static bool has_more_than_1_per_VLD(const char *numeral_candidate)
 
 ValidationResult validate_numeral(const char *numeral_candidate)
 {
-  if (is_not_a_numeral(numeral_candidate))
+  char buffer[MAX_COMBINED_NUMERAL_SIZE];
+  strcpy(buffer, numeral_candidate);
+  remove_subtractives(buffer);
+
+  if (is_not_a_numeral(buffer))
     return NOT_A_NUMERAL;
 
-  if (has_more_than_3_per_IXCM(numeral_candidate))
+  if (has_more_than_3_per_IXCM(buffer))
     return MORE_THAN_3_PER_IXCM;
 
-  if (has_more_than_1_per_VLD(numeral_candidate))
+  if (has_more_than_1_per_VLD(buffer))
     return MORE_THAN_1_PER_VLD;
   return SUCCESS;
 }
