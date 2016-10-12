@@ -23,10 +23,22 @@ START_TEST(adds_complicated_number)
 }
 END_TEST
 
+START_TEST(adds_MMMCMXCIX_but_produces_invalid_numeral)
+{
+        char result[100] = " ";
+
+        add_numerals(result, 100, "MMMCMXCIX", "I");
+        ValidationResult validation_result = validate_numeral(result);
+
+        ck_assert_int_ne(validation_result, SUCCESS);
+}
+END_TEST
+
 TCase *addition_tests(void)
 {
         TCase *additionCase = tcase_create("addition");
         tcase_add_test(additionCase, adds_simple_numeral_to_nothing);
         tcase_add_test(additionCase, adds_complicated_number);
+        tcase_add_test(additionCase, adds_MMMCMXCIX_but_produces_invalid_numeral);
         return additionCase;
 }
