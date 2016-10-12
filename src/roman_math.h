@@ -8,7 +8,8 @@ typedef enum {
   SUCCESS,
   TOO_LONG,
   NOT_A_NUMERAL,
-  MORE_THAN_3_PER_IXCM
+  MORE_THAN_3_PER_IXCM,
+  MORE_THAN_1_PER_VLD
 } ValidationResult;
 
 //it is recommended to validate inputs with this before any other function use.
