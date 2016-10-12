@@ -3,6 +3,7 @@
 
 #include "../src/roman_math.h"
 #include "../src/validate.h"
+#include "../src/constants.h"
 
 typedef struct
 {
@@ -31,7 +32,7 @@ END_TEST
 
 START_TEST(too_short_buffer_results_in_error)
 {
-  bool success = validate_buffer(41);
+  bool success = validate_buffer(MAX_COMBINED_NUMERAL_SIZE-1);
 
   ck_assert(!success);
 }
